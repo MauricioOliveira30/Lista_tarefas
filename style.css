@@ -1,28 +1,160 @@
-body{
-    font-family: Arial, sans-serif;
-text-align: center;
-    background-color: #f0f0f0;
-    margin-top: 40px;
-    
+/* Reset básico e variáveis de cores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
+:root {
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --card-bg: #ffffff;
+    --text-color: #2d3748;
+    --text-muted: #a0aec0;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --danger-color: #ef4444;
+    --danger-hover: #dc2626;
+    --secondary-color: #e2e8f0;
+    --secondary-text: #475569;
+    --secondary-hover: #cbd5e1;
+    --border-color: #e2e8f0;
+    --radius: 12px;
 }
-input[type="text"], input[type="number"] {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
-button{
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+
+/* Container Principal */
+.container {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 480px;
+    padding: 32px;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Grupo de Entrada (Input + Botão Adicionar) */
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Ações secundárias */
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+/* Estilo Geral dos Botões */
+.btn {
+    padding: 10px 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
     cursor: pointer;
-
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
-.concluido{
-    text-decoration: line-through;
-    color: gray;
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-add {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text);
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+}
+
+.btn-danger {
+    background-color: #fee2e2;
+    color: var(--danger-color);
+    flex: 1;
+}
+
+.btn-danger:hover {
+    background-color: #fca5a5;
+    color: #991b1b;
+}
+
+/* Lista de Tarefas */
+#lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#lista li {
+    padding: 12px 16px;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+#lista li:hover {
+    background-color: #f1f5f9;
+}
+
+/* Scrollbar personalizada para a lista */
+#lista::-webkit-scrollbar {
+    width: 6px;
+}
+
+#lista::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 4px;
 }
