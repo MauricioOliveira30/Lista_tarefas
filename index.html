@@ -1,16 +1,49 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>To do List</title>
-        <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="manifest.json">
+    <script>
+        if("serviceworker"in navigator){
+            navigator.serviceWorker.register("sw.js")
+        }
+    </script>
 </head>
 <body>
-       <h1>Lista de tarefas</h1>
-       <input type="text" id="tarefa">
-       <button onclick="adicionar()">Adicionar</button>
-       <button onclick="remover()">Remover</button>
-       <button onclick="editar()">Editar</button>
-       <ul id="lista"></ul>
-       <script src="prog.js"></script> 
-    </body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        
+        <div class="input-group">
+            <input type="text" id="tarefa" placeholder="Digite uma nova tarefa...">
+            <button class="btn btn-add" onclick="adicionar()">Adicionar</button>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-secondary" onclick="editar()">Editar</button>
+            <button class="btn btn-danger" onclick="remover()">Remover</button>
+        </div>
+<div class="input-group" style="margin: top 10px;"><input type="text" id="promptIA"placeholder="Ex:Crie 3 tarefas">
+<button type="button"class="btn btn-success" onclick="geradorIA()">Gerar
+
+</button></div>
+<div class="progress-container">
+    <div class="progress-info">
+        <span id="progresso-texto">0 de 0 concluídas</span>
+    </div>
+    <div class="progress-bar-bg">
+        <div id="progress-bar-fill"></div>
+    </div>
+</div>
+        <ul id="lista"></ul>
+    </div>
+
+    <script src="prog.js"></script> 
+</body>
+</html>
